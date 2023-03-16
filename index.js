@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 const zoho = require('zcrmsdk');
 
-const config = require('./zoho.config.js');
+//const config = require('./zoho.config.js');
 const configJson = {
     "client_id": "1000.QAU4KEK64DOH8CZRNU11RLYTKURX0L", //mandatory
     "client_secret": "c60dc33b5337fee4f2556250a9c635f95d7b131ee4", //mandatory
