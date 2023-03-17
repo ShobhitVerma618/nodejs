@@ -75,7 +75,8 @@ app.post('/leads', async (req, res, next) => {
     while(num>=1 && num<4) {
         response1 = await createLead(data.name,data.phone,s,a,data.email,data.people)
         if(response1.statusCode == 201){
-            res.send(response1.statusCode)
+            //res.send(response1.statusCode)
+            res.redirect("https://vanillafarms.org/book-my-stay/")
             num=0;
             break
         }
