@@ -41,9 +41,9 @@ async function createLead(name,phone,arrive,depart,email,people){
                 "Last_Name": name,
                 "Email":email,
                 "Phone":phone,
-                "No. of Guests":people,
-                "Check In Date":arrive,
-                "Check Out Date":depart,
+                "No_of_Guests":people,
+                "Check_In_Date":arrive,
+                "Check_Out_Date":depart,
             }
         ],
         "lar_id":""
@@ -67,9 +67,13 @@ app.post('/leads', async (req, res, next) => {
     num=1;
     await zoho.initialize(configJson);
     data = req.body;
+    let s = data.arrive;
+    s = s + "T00:00:00+05:30"
+    let a = data.depart;
+    a = a + "T00:00:00+05:30"
     //await zoho.generateAuthTokenfromRefreshToken("info@vanillafarms.org","1000.c48c0dca613a512641cdc4500de180a1.89a181a664140e545a3581f7c51abbdc")
     while(num>=1 && num<4) {
-        response1 = await createLead(data.name,data.phone,data.arrive,data.depart,data.email,data.people)
+        response1 = await createLead(data.name,data.phone,s,a,data.email,data.people)
         if(response1.statusCode == 201){
             res.send(response1.statusCode)
             num=0;
