@@ -71,7 +71,7 @@ app.post('/leads', async (req, res, next) => {
     s = s + "T00:00:00+05:30"
     let a = data.depart;
     a = a + "T00:00:00+05:30"
-    //await zoho.generateAuthTokenfromRefreshToken("info@vanillafarms.org","1000.c48c0dca613a512641cdc4500de180a1.89a181a664140e545a3581f7c51abbdc")
+    await zoho.generateAuthTokenfromRefreshToken("info@vanillafarms.org","1000.c48c0dca613a512641cdc4500de180a1.89a181a664140e545a3581f7c51abbdc")
     while(num>=1 && num<4) {
         response1 = await createLead(data.name,data.phone,s,a,data.email,data.people)
         if(response1.statusCode == 201){
